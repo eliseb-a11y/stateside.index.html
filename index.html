@@ -10,9 +10,8 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #f6f4f1;
+  background: #f5f2ee;
   color: #2f2f2f;
-  scroll-behavior: smooth;
 }
 
 /* NAV */
@@ -20,11 +19,6 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 25px 70px;
-  position: sticky;
-  top: 0;
-  background: rgba(246,244,241,0.9);
-  backdrop-filter: blur(8px);
-  z-index: 10;
 }
 
 nav h1 {
@@ -33,203 +27,103 @@ nav h1 {
 }
 
 nav ul {
-  list-style: none;
   display: flex;
   gap: 30px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #2f2f2f;
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  height: 1px;
-  width: 0%;
-  background: #2f2f2f;
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  transition: 0.3s;
-}
-
-nav a:hover::after {
-  width: 100%;
+  list-style: none;
 }
 
 /* HERO */
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   align-items: center;
   padding: 80px;
-  background: #eae7e2;
+  background: #ebe7e2;
 }
 
-.hero-text {
-  animation: fadeUp 1s ease forwards;
-}
-
-.hero-text h2 {
+.hero h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 52px;
-  margin-bottom: 20px;
+  font-size: 56px;
+  line-height: 1.1;
 }
 
-.hero-text p {
+.hero p {
   max-width: 420px;
-  margin-bottom: 25px;
-  line-height: 1.6;
+  margin: 20px 0;
 }
 
-.buttons button {
+.hero button {
   padding: 12px 22px;
-  border: 1px solid #2f2f2f;
-  background: transparent;
-  margin-right: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.buttons button:hover {
+  border: none;
   background: #2f2f2f;
   color: white;
+  cursor: pointer;
 }
 
 .hero img {
   width: 100%;
-  border-radius: 6px;
-  animation: fadeIn 1.5s ease;
 }
 
-/* FEATURES */
-.features {
+/* USA MAP */
+.map {
+  margin-top: 40px;
   display: flex;
-  justify-content: space-around;
-  padding: 50px;
-  text-align: center;
+  align-items: center;
+  gap: 20px;
 }
 
-.features div {
-  max-width: 200px;
-  opacity: 0;
-  transform: translateY(20px);
+.map svg {
+  width: 120px;
+  opacity: 0.6;
+}
+
+/* SECTION TITLE */
+.section-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin: 60px 0 20px;
 }
 
 /* PRODUCTS */
 .products {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  padding: 70px;
-}
-
-.card {
-  background: white;
-  padding: 12px;
-  transition: 0.3s;
-  cursor: pointer;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 60px 60px;
 }
 
 .card img {
   width: 100%;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+.card h4 {
+  margin: 10px 0 5px;
 }
 
-/* STATEMENT */
-.statement {
-  text-align: center;
-  padding: 100px 20px;
+.card p {
+  font-size: 14px;
+  color: #666;
 }
 
-.statement h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-/* SPLIT */
-.split {
+/* ICON SECTION */
+.icons {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 80px;
-  gap: 60px;
-}
-
-.featured {
-  border: 1px solid #ddd;
-  padding: 20px;
-  background: white;
-  transition: 0.3s;
-}
-
-.featured:hover {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-
-.featured img {
-  width: 100%;
-}
-
-/* EMAIL */
-.email {
-  text-align: center;
+  grid-template-columns: repeat(4, 1fr);
   padding: 60px;
-  background: #eae7e2;
+  background: #e7e3dd;
+  text-align: center;
 }
 
-input {
-  padding: 12px;
-  width: 260px;
-  border: 1px solid #aaa;
-}
-
-button.join {
-  padding: 12px 18px;
-  border: 1px solid black;
-  background: transparent;
-  transition: 0.3s;
-}
-
-button.join:hover {
-  background: black;
-  color: white;
+.icons div {
+  padding: 10px;
 }
 
 /* FOOTER */
 footer {
+  padding: 40px;
   text-align: center;
-  padding: 30px;
   font-size: 12px;
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp {
-  from {opacity: 0; transform: translateY(30px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-/* SCROLL REVEAL */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
 }
 </style>
 </head>
@@ -239,77 +133,81 @@ footer {
 <nav>
   <h1>StateSide Stitch</h1>
   <ul>
-    <li><a href="#">Shop</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Process</a></li>
-    <li><a href="#">Contact</a></li>
+    <li>Home</li>
+    <li>About</li>
+    <li>Collection</li>
+    <li>Contact</li>
   </ul>
 </nav>
 
 <section class="hero">
-  <div class="hero-text">
-    <h2>Elevated Textiles. Made Here.</h2>
-    <p>High-design home essentials crafted in the USA—bringing texture, quality, and intention to everyday living.</p>
-    <div class="buttons">
-      <button>Shop Collection</button>
-      <button>Our Story</button>
+  <div>
+    <h2>Elevated Textiles.<br>Made Here.</h2>
+    <p>Thoughtfully designed home textiles, woven with purpose and crafted right here in the USA.</p>
+    <button>Our Collection</button>
+
+    <div class="map">
+      <!-- SIMPLE USA OUTLINE -->
+      <svg viewBox="0 0 100 60" fill="none" stroke="#2f2f2f" stroke-width="1">
+        <path d="M5,30 L20,10 L40,15 L60,10 L80,20 L90,30 L80,50 L50,55 L20,50 Z"/>
+      </svg>
+      <p>Designed in the heartland. Made across the USA.</p>
     </div>
   </div>
-  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+
+  <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da">
 </section>
 
-<section class="features reveal">
-  <div><strong>Crafted in the USA</strong><p>Small-batch production.</p></div>
-  <div><strong>Design-Forward</strong><p>Texture-rich aesthetics.</p></div>
-  <div><strong>Accessible Luxury</strong><p>Boutique feel.</p></div>
-  <div><strong>Built to Last</strong><p>High-quality materials.</p></div>
-</section>
+<h2 class="section-title">Thoughtful Textiles for Everyday Living</h2>
 
-<section class="products reveal">
-  <div class="card"><img src="https://images.unsplash.com/photo-1582582494700-8c66e6c0c1d5"><p>Decorative Pillows</p></div>
-  <div class="card"><img src="https://images.unsplash.com/photo-1616627989237-ff0b02d293b3"><p>Textured Throws</p></div>
-  <div class="card"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92"><p>Luxury Towels</p></div>
-</section>
-
-<section class="statement reveal">
-  <h2>Closing the Gap Between Basic and Beautiful</h2>
-  <p>We bring elevated design into everyday spaces—without compromise.</p>
-</section>
-
-<section class="split reveal">
-  <div class="featured">
+<section class="products">
+  <div class="card">
     <img src="https://images.unsplash.com/photo-1582582494700-8c66e6c0c1d5">
-    <h4>Textured Linen Pillow – Sand</h4>
-    <p>$38</p>
+    <h4>Throws & Blankets</h4>
+    <p>Cozy meets timeless.</p>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1616627989237-ff0b02d293b3">
+    <h4>Pillows</h4>
+    <p>Effortless comfort.</p>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+    <h4>Tea Towels</h4>
+    <p>Functional beauty.</p>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92">
+    <h4>Towels</h4>
+    <p>Soft and made to last.</p>
+  </div>
+</section>
+
+<section class="icons">
+  <div>
+    <h4>Made in the USA</h4>
+    <p>Supporting local makers.</p>
   </div>
   <div>
-    <h2>Designed and Crafted in the United States</h2>
-    <p>Our domestic manufacturing allows us to move faster, design smarter, and deliver better quality.</p>
+    <h4>Quality Materials</h4>
+    <p>Premium fabrics that last.</p>
   </div>
-</section>
-
-<section class="email reveal">
-  <p>Be the first to experience the launch.</p>
-  <input placeholder="Enter Email">
-  <button class="join">Join</button>
+  <div>
+    <h4>Sustainable</h4>
+    <p>Mindful production.</p>
+  </div>
+  <div>
+    <h4>Built on Purpose</h4>
+    <p>Designed with intention.</p>
+  </div>
 </section>
 
 <footer>
   © 2026 StateSide Stitch
 </footer>
-
-<script>
-const reveals = document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      el.classList.add("active");
-    }
-  });
-});
-</script>
 
 </body>
 </html>
