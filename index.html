@@ -7,98 +7,135 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Inter', sans-serif;
-  background: #f5f2ee;
+  background: #f6f2ee;
   color: #2f2f2f;
+  overflow-x: hidden;
 }
 
 /* NAV */
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 25px 70px;
+  padding: 24px 60px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(246,242,238,0.85);
+  backdrop-filter: blur(10px);
+  z-index: 10;
 }
 
 nav h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 nav ul {
   display: flex;
-  gap: 30px;
+  gap: 25px;
   list-style: none;
+  font-size: 14px;
 }
 
 /* HERO */
 .hero {
+  height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1.2fr 1fr;
   align-items: center;
-  padding: 80px;
-  background: #ebe7e2;
+  padding: 120px 80px 60px;
 }
 
 .hero h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 56px;
-  line-height: 1.1;
+  font-size: 64px;
+  line-height: 1.05;
+  margin-bottom: 20px;
 }
 
 .hero p {
   max-width: 420px;
-  margin: 20px 0;
+  line-height: 1.6;
+  margin-bottom: 30px;
 }
 
 .hero button {
-  padding: 12px 22px;
-  border: none;
+  padding: 14px 26px;
+  border: 1px solid #2f2f2f;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
   background: #2f2f2f;
   color: white;
-  cursor: pointer;
 }
 
-.hero img {
+/* IMAGES */
+img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* USA MAP */
-.map {
-  margin-top: 40px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
+/* HERO IMAGE */
+.hero-image {
+  height: 85vh;
 }
 
-.map svg {
-  width: 120px;
-  opacity: 0.6;
+/* SECTION */
+.section {
+  padding: 120px 80px;
 }
 
-/* SECTION TITLE */
-.section-title {
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  margin: 60px 0 20px;
+/* EDITORIAL */
+.editorial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+/* PARALLAX */
+.parallax {
+  height: 60vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  margin: 80px 0;
 }
 
 /* PRODUCTS */
 .products {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 0 60px 60px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.card {
+  transition: transform 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
 }
 
 .card img {
-  width: 100%;
+  height: 340px;
 }
 
 .card h4 {
-  margin: 10px 0 5px;
+  margin-top: 12px;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
 }
 
 .card p {
@@ -106,24 +143,39 @@ nav ul {
   color: #666;
 }
 
-/* ICON SECTION */
-.icons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 60px;
-  background: #e7e3dd;
+/* QUOTE */
+.quote {
+  background: #ebe7e2;
+  padding: 140px 80px;
   text-align: center;
 }
 
-.icons div {
-  padding: 10px;
+.quote h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  max-width: 900px;
+  margin: auto;
+  line-height: 1.2;
+}
+
+/* SPLIT */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.split img {
+  height: 500px;
 }
 
 /* FOOTER */
 footer {
-  padding: 40px;
+  padding: 60px;
   text-align: center;
   font-size: 12px;
+  color: #777;
 }
 </style>
 </head>
@@ -134,79 +186,106 @@ footer {
   <h1>StateSide Stitch</h1>
   <ul>
     <li>Home</li>
-    <li>About</li>
     <li>Collection</li>
+    <li>About</li>
     <li>Contact</li>
   </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div>
-    <h2>Elevated Textiles.<br>Made Here.</h2>
-    <p>Thoughtfully designed home textiles, woven with purpose and crafted right here in the USA.</p>
-    <button>Our Collection</button>
+    <h2>Textiles<br>that feel like home.</h2>
+    <p>Modern American-made textiles designed for slow living, warm spaces, and everyday ritual.</p>
+    <button>Explore Collection</button>
+  </div>
 
-    <div class="map">
-      <!-- SIMPLE USA OUTLINE -->
-      <svg viewBox="0 0 100 60" fill="none" stroke="#2f2f2f" stroke-width="1">
-        <path d="M5,30 L20,10 L40,15 L60,10 L80,20 L90,30 L80,50 L50,55 L20,50 Z"/>
-      </svg>
-      <p>Designed in the heartland. Made across the USA.</p>
+  <div class="hero-image">
+    <img src="https://image.pollinations.ai/prompt/Minimal%20modern%20bedroom%20interior%20in%20soft%20natural%20daylight%2C%20ivory%20linen%20bedding%20subtle%20texture%2C%20folded%20neutral%20throw%20at%20foot%20of%20bed%2C%20warm%20plaster%20walls%2C%20quiet%20American%20editorial%20aesthetic%2C%20soft%20shadows%2C%20luxury%20textile%20brand%20photography%2C%20no%20people%2C%20ultra%20realistic">
+  </div>
+</section>
+
+<!-- EDITORIAL -->
+<section class="section editorial">
+  <div>
+    <h3 style="font-family:'Playfair Display', serif; font-size:42px; margin-bottom:20px;">
+      Designed with intention, not excess.
+    </h3>
+    <p style="line-height:1.7;">
+      We believe in objects that stay—soft textures, natural fibers, and pieces that become part of your daily rhythm.
+    </p>
+  </div>
+
+  <div>
+    <p style="line-height:1.7;">
+      Each collection is inspired by quiet American landscapes, early morning light, and the tactile memory of woven cloth.
+    </p>
+  </div>
+</section>
+
+<!-- PARALLAX -->
+<div class="parallax"
+style="background-image:url('https://image.pollinations.ai/prompt/Sunlit%20quiet%20American%20countryside%20interior%20mood%2C%20linen%20fabric%20in%20soft%20breeze%20through%20open%20window%2C%20warm%20neutral%20tones%2C%20poetic%20editorial%20textile%20brand%20imagery%2C%20cinematic%20lighting%2C%20slow%20living%20atmosphere%2C%20no%20people')">
+</div>
+
+<!-- PRODUCTS -->
+<section class="section">
+  <div class="editorial" style="margin-bottom:60px;">
+    <div>
+      <h3 style="font-family:'Playfair Display', serif; font-size:42px;">
+        Everyday objects, elevated.
+      </h3>
     </div>
   </div>
 
-  <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da">
-</section>
+  <div class="products">
 
-<h2 class="section-title">Thoughtful Textiles for Everyday Living</h2>
+    <div class="card">
+      <img src="https://image.pollinations.ai/prompt/Stack%20of%20natural%20linen%20and%20wool%20throws%20in%20oatmeal%20sand%20ivory%20tones%2C%20draped%20over%20wooden%20bench%2C%20soft%20morning%20light%2C%20luxury%20textile%20brand%20photography%2C%20minimal%20composition">
+      <h4>Throws</h4>
+      <p>Soft structure for lived-in spaces.</p>
+    </div>
 
-<section class="products">
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1582582494700-8c66e6c0c1d5">
-    <h4>Throws & Blankets</h4>
-    <p>Cozy meets timeless.</p>
-  </div>
+    <div class="card">
+      <img src="https://image.pollinations.ai/prompt/Neutral%20linen%20pillows%20ivory%20beige%20warm%20gray%20arranged%20on%20modern%20sofa%2C%20natural%20sunlight%20through%20sheer%20curtains%2C%20soft%20editorial%20textile%20photography">
+      <h4>Pillows</h4>
+      <p>Quiet comfort in every layer.</p>
+    </div>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1616627989237-ff0b02d293b3">
-    <h4>Pillows</h4>
-    <p>Effortless comfort.</p>
-  </div>
+    <div class="card">
+      <img src="https://image.pollinations.ai/prompt/Minimal%20bathroom%20stacked%20cotton%20towels%20ivory%20sand%20tones%2C%20stone%20sink%2C%20soft%20natural%20light%2C%20luxury%20spa%20editorial%20textile%20photography">
+      <h4>Towels</h4>
+      <p>Absorbent, durable, essential.</p>
+    </div>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-    <h4>Tea Towels</h4>
-    <p>Functional beauty.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92">
-    <h4>Towels</h4>
-    <p>Soft and made to last.</p>
   </div>
 </section>
 
-<section class="icons">
+<!-- QUOTE -->
+<section class="quote">
+  <h2>
+    “We design textiles that don’t demand attention—but reward it the longer you live with them.”
+  </h2>
+</section>
+
+<!-- SPLIT -->
+<section class="section split">
+
+  <img src="https://image.pollinations.ai/prompt/Linen%20fabric%20blowing%20through%20open%20window%2C%20sunlit%20minimal%20American%20interior%2C%20warm%20neutral%20tones%2C%20quiet%20cinematic%20editorial%20textile%20photography">
+
   <div>
-    <h4>Made in the USA</h4>
-    <p>Supporting local makers.</p>
+    <h3 style="font-family:'Playfair Display', serif; font-size:38px; margin-bottom:20px;">
+      Made across the United States.
+    </h3>
+    <p style="line-height:1.7;">
+      From weaving to finishing, each piece passes through skilled hands across multiple regions of the U.S.
+    </p>
   </div>
-  <div>
-    <h4>Quality Materials</h4>
-    <p>Premium fabrics that last.</p>
-  </div>
-  <div>
-    <h4>Sustainable</h4>
-    <p>Mindful production.</p>
-  </div>
-  <div>
-    <h4>Built on Purpose</h4>
-    <p>Designed with intention.</p>
-  </div>
+
 </section>
 
 <footer>
-  © 2026 StateSide Stitch
+  © 2026 StateSide Stitch — Designed for slow living
 </footer>
 
 </body>
